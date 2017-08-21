@@ -2,6 +2,7 @@
 var index1 = 0;
 var index2 = 0;
 var index3 = 0;
+var timesVoted = 0;
 
 function Image(name, path){
   this.name = name;
@@ -18,18 +19,18 @@ var breakfast = new Image('breakfast', 'img/breakfast.jpg');
 var bubblegum = new Image('bubblegum', 'img/bubblegum.jpg');
 var chair = new Image('chair', 'img/chair.jpg');
 var cthulhu = new Image('cthulhu', 'img/cthulhu.jpg');
-var dogDuck = new Image('dogDuck', 'img/dog-duck.jpg');
+var dogDuck = new Image('dog duck', 'img/dog-duck.jpg');
 var dragon = new Image('dragon', 'img/dragon.jpg');
 var pen = new Image('pen', 'img/pen.jpg');
-var petSweep = new Image('petSweep', 'img/pet-sweep.jpg');
+var petSweep = new Image('pet sweep', 'img/pet-sweep.jpg');
 var scissors = new Image('scissors', 'img/scissors.jpg');
 var shark = new Image('shark', 'img/shark.jpg');
 var sweep = new Image('sweep', 'img/sweep.png');
 var tauntaun = new Image('tauntaun', 'img/tauntaun.jpg');
 var unicorn = new Image('unicorn', 'img/unicorn.jpg');
-var usb = new Image('sub', 'img/usb.gif');
-var waterCan = new Image('waterCan', 'img/water-can.jpg');
-var wineGlass = new Image('wineGlass', 'img/wine-glass.jpg');
+var usb = new Image('usb', 'img/usb.gif');
+var waterCan = new Image('water can', 'img/water-can.jpg');
+var wineGlass = new Image('wine glass', 'img/wine-glass.jpg');
 
 var images = [bag,banana,bathroom,boots,breakfast,bubblegum,chair,cthulhu,dogDuck,dragon,pen,petSweep,scissors,shark,sweep,tauntaun,unicorn,usb,waterCan,wineGlass];
 var position = document.getElementsByTagName('body')[0];
@@ -55,9 +56,6 @@ var displayImages = function(){
   im1.setAttribute('src', images[index1].path);
   im2.setAttribute('src', images[index2].path);
   im3.setAttribute('src', images[index3].path);
-  im1.className = images[index1].name;
-  im2.className = images[index2].name;
-  im3.className = images[index3].name;
   images[index1].timesDisplayed ++;
   images[index2].timesDisplayed ++;
   images[index3].timesDisplayed ++;
@@ -81,24 +79,58 @@ function vote1(event){
   event.preventDefault();
   images[index1].timesClicked ++;
   deleteImages();
-  displayImages();
+  timesVoted ++;
+  console.log(timesVoted);
+  if(timesVoted === 25){
+    votingResults();
+  }
+  else{
+    displayImages();
+  }
+
 }
 
 function vote2(event){
   event.preventDefault();
   images[index2].timesClicked ++;
   deleteImages();
-  displayImages();
+  timesVoted ++;
+  console.log(timesVoted);
+  if(timesVoted === 25){
+    votingResults();
+  }
+  else{
+    displayImages();
+  }
 }
 
 function vote3(event){
   event.preventDefault();
   images[index3].timesClicked ++;
   deleteImages();
-  displayImages();
+  timesVoted ++;
+  console.log(timesVoted);
+  if(timesVoted === 25){
+    votingResults();
+  }
+  else{
+    displayImages();
+  }
 }
 
+var votingResults = function(){
+  var list = document.createElement('ul');
+  position.appendChild(list);
+
+  for(var i = 0; i < images.length; i ++){
+    var li = document.createElement('li');
+    list.appendChild(li);
+    li.innerText = images[i].name + ' was seen ' + images[i].timesDisplayed + ' times, and voted for ' + images[i].timesClicked + ' times';
+  }
+};
+
 displayImages();
+
 //
 // var pic1 = document.createElement('img');
 // pic1.setAttribute('src', 'img/bag.jpg');
