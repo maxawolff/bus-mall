@@ -2,6 +2,9 @@
 var index1 = 0;
 var index2 = 0;
 var index3 = 0;
+var prevIndex1;
+var prevIndex2;
+var prevIndex3;
 var timesVoted = 0;
 
 function Image(name, path){
@@ -38,13 +41,19 @@ var position = document.getElementsByTagName('body')[0];
 var whichImages = function(){
   index1 = Math.floor(Math.random() * 20);
   index2 = Math.floor(Math.random() * 20);
-  while(index2 === index1){
+  index3 = Math.floor(Math.random() * 20);
+  while(index1 === prevIndex1){
+    index1 = Math.floor(Math.random() * 20);
+  }
+  while(index2 === index1 || index2 === prevIndex2){
     index2 = Math.floor(Math.random() * 20);
   }
-  index3 = Math.floor(Math.random() * 20);
-  while(index3 === index2 || index3 === index1){
+  while(index3 === index2 || index3 === index1 || index3 === prevIndex3){
     index3 = Math.floor(Math.random() * 20);
   }
+  prevIndex1 = index1;
+  prevIndex2 = index2;
+  prevIndex3 = index3;
 };
 
 var displayImages = function(){
@@ -130,27 +139,3 @@ var votingResults = function(){
 };
 
 displayImages();
-
-//
-// var pic1 = document.createElement('img');
-// pic1.setAttribute('src', 'img/bag.jpg');
-// pic1.className = bag.name;
-// position.appendChild(pic1);
-//
-// var pic2 = document.createElement('img');
-// pic2.setAttribute('src', ban.path);
-// pic2.className = ban.name;
-// position.appendChild(pic2);
-//
-// var pic3 = document.createElement('img');
-// pic3.setAttribute('src', bath.path);
-// pic3.className = bath.name;
-// position.appendChild(pic3);
-//
-// document.getElementsByClassName('bag')[0].addEventListener('click', vote);
-//
-// function vote(event){
-//   event.preventDefault();
-//   bag.timesClicked ++;
-//   console.log('you clicked on the bag, timesClicked = ' + bag.timesClicked);
-// }
