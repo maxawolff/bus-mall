@@ -44,10 +44,10 @@ var whichImages = function(){
   while(index3 === index2 || index3 === index1){
     index3 = Math.floor(Math.random() * 20);
   }
-  console.log('the three number generated were ' + index1 + ', ' + index2 + ', ' + index3);
 };
 
 var displayImages = function(){
+  whichImages();
   var im1 = document.createElement('img');
   var im2 = document.createElement('img');
   var im3 = document.createElement('img');
@@ -58,17 +58,47 @@ var displayImages = function(){
   im1.className = images[index1].name;
   im2.className = images[index2].name;
   im3.className = images[index3].name;
+  images[index1].timesDisplayed ++;
+  images[index2].timesDisplayed ++;
+  images[index3].timesDisplayed ++;
   position.appendChild(im1);
   position.appendChild(im2);
   position.appendChild(im3);
-  document.getElementsByTagName('img')[0].addEventListener('click', vote);
-  document.getElementsByTagName('img')[1].addEventListener('click', vote);
-  document.getElementsByTagName('img')[2].addEventListener('click', vote);
+  document.getElementsByTagName('img')[0].addEventListener('click', vote1);
+  document.getElementsByTagName('img')[1].addEventListener('click', vote2);
+  document.getElementsByTagName('img')[2].addEventListener('click', vote3);
 };
 
-whichImages();
-displayImages();
+var deleteImages = function(){
+  for(var i = 0; i < 3; i ++){
+    var anImage = document.getElementsByTagName('img')[0];
+    var container = anImage.parentNode;
+    container.removeChild(anImage);
+  }
+};
 
+function vote1(event){
+  event.preventDefault();
+  images[index1].timesClicked ++;
+  deleteImages();
+  displayImages();
+}
+
+function vote2(event){
+  event.preventDefault();
+  images[index2].timesClicked ++;
+  deleteImages();
+  displayImages();
+}
+
+function vote3(event){
+  event.preventDefault();
+  images[index3].timesClicked ++;
+  deleteImages();
+  displayImages();
+}
+
+displayImages();
 //
 // var pic1 = document.createElement('img');
 // pic1.setAttribute('src', 'img/bag.jpg');
