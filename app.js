@@ -16,7 +16,7 @@ var bathroom = new Image('bathroom', 'img/bathroom.jpg');
 var boots = new Image('boots', 'img/boots.jpg');
 var breakfast = new Image('breakfast', 'img/breakfast.jpg');
 var bubblegum = new Image('bubblegum', 'img/bubblegum.jpg');
-var chair = new Image('chair', 'img/char.jpg');
+var chair = new Image('chair', 'img/chair.jpg');
 var cthulhu = new Image('cthulhu', 'img/cthulhu.jpg');
 var dogDuck = new Image('dogDuck', 'img/dog-duck.jpg');
 var dragon = new Image('dragon', 'img/dragon.jpg');
@@ -46,7 +46,28 @@ var whichImages = function(){
   }
   console.log('the three number generated were ' + index1 + ', ' + index2 + ', ' + index3);
 };
+
+var displayImages = function(){
+  var im1 = document.createElement('img');
+  var im2 = document.createElement('img');
+  var im3 = document.createElement('img');
+
+  im1.setAttribute('src', images[index1].path);
+  im2.setAttribute('src', images[index2].path);
+  im3.setAttribute('src', images[index3].path);
+  im1.className = images[index1].name;
+  im2.className = images[index2].name;
+  im3.className = images[index3].name;
+  position.appendChild(im1);
+  position.appendChild(im2);
+  position.appendChild(im3);
+  document.getElementsByTagName('img')[0].addEventListener('click', vote);
+  document.getElementsByTagName('img')[1].addEventListener('click', vote);
+  document.getElementsByTagName('img')[2].addEventListener('click', vote);
+};
+
 whichImages();
+displayImages();
 
 //
 // var pic1 = document.createElement('img');
