@@ -42,13 +42,13 @@ var whichImages = function(){
   index1 = Math.floor(Math.random() * 20);
   index2 = Math.floor(Math.random() * 20);
   index3 = Math.floor(Math.random() * 20);
-  while(index1 === prevIndex1){
+  while(index1 === prevIndex1 || index1 === prevIndex2 || index1 === prevIndex3){
     index1 = Math.floor(Math.random() * 20);
   }
-  while(index2 === index1 || index2 === prevIndex2){
+  while(index2 === index1 || index2 === prevIndex1 || index2 === prevIndex2 || index2 === prevIndex3){
     index2 = Math.floor(Math.random() * 20);
   }
-  while(index3 === index2 || index3 === index1 || index3 === prevIndex3){
+  while(index3 === index2 || index3 === index1 || index3 === prevIndex1 || index3 === prevIndex2 || index3 === prevIndex3){
     index3 = Math.floor(Math.random() * 20);
   }
   prevIndex1 = index1;
