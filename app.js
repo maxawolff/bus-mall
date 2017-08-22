@@ -91,7 +91,6 @@ var deleteImages = function(){
 };
 
 function vote1(event){
-  //event.preventDefault();
   images[index1].timesClicked ++;
   deleteImages();
   timesVoted ++;
@@ -106,7 +105,6 @@ function vote1(event){
 }
 
 function vote2(event){
-  //event.preventDefault();
   images[index2].timesClicked ++;
   deleteImages();
   timesVoted ++;
@@ -120,7 +118,6 @@ function vote2(event){
 }
 
 function vote3(event){
-  //event.preventDefault();
   images[index3].timesClicked ++;
   deleteImages();
   timesVoted ++;
@@ -159,9 +156,9 @@ var votingResults = function(){
     data: data,
     options:{
       barValueSpacing: 20,
+      maintainAspectRatio: false,
     }
   });
 };
 
 displayImages();
-var test = [2, 12, 6, 7, 18, 3, 10];
