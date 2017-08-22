@@ -139,39 +139,28 @@ var votingResults = function(){
   for(var i = 0; i < images.length; i ++){
     displayResults.push(images[i].timesDisplayed);
     clickResults.push(images[i].timesClicked);
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
-    var chartConfig = {
-      type: 'bar',
-      data: {
-        labels: imageNames, // x-axis labels for every entry in your data set. It should match up with the number of things you're plotting (if it's a bar chart)
-        datasets: [{ // <-- notice that this can be an array of multiple data sets.
-          // each data set is its own object literal.
-          label: '# of Votes', // <-- the label of this one data set
-          data: clickResults, // <-- where your data actually goes. just the numbers
-          backgroundColor: [ // <-- this can be either one single color or a color for each item in your bar chart.
-            'rgba(255, 99, 132, 0.2)',
-          ],
-          borderColor: [
-            'rgba(255,99,132,1)',
-          ],
-          borderWidth: 5
-        }]
-      },
-      options: {
-        maintainAspectRatio: false,
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero:true
-            }
-          }]
-        }
-      }
-    };
-    var myChart = new Chart(ctx, chartConfig);
-
   }
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+  var data = {
+    labels: imageNames,
+    datasets: [{
+      label: 'times clicked',
+      backgroundColor: 'blue',
+      data: clickResults
+    },{
+      label: 'times shown',
+      backgroundColor: 'red',
+      data: displayResults
+    }]
+  };
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options:{
+      barValueSpacing: 20,
+    }
+  });
 };
 
 displayImages();
