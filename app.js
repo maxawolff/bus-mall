@@ -5,6 +5,7 @@ var index3 = 0;
 var prevIndex1;
 var prevIndex2;
 var prevIndex3;
+// use an array for indicies
 var timesVoted = 0;
 
 function Image(name, path){
@@ -14,6 +15,7 @@ function Image(name, path){
   this.timesClicked = 0;
 }
 
+// use a for loop to create these, no need to give them a name since they are stored in an array, not needed just a though
 var bag = new Image('bag', 'img/bag.jpg');
 var banana = new Image('banana', 'img/banana.jpg');
 var bathroom = new Image('bathroom', 'img/bathroom.jpg');
@@ -85,7 +87,7 @@ var deleteImages = function(){
 };
 
 function vote1(event){
-  event.preventDefault();
+  //event.preventDefault();
   images[index1].timesClicked ++;
   deleteImages();
   timesVoted ++;
@@ -100,7 +102,7 @@ function vote1(event){
 }
 
 function vote2(event){
-  event.preventDefault();
+  //event.preventDefault();
   images[index2].timesClicked ++;
   deleteImages();
   timesVoted ++;
@@ -114,7 +116,7 @@ function vote2(event){
 }
 
 function vote3(event){
-  event.preventDefault();
+  //event.preventDefault();
   images[index3].timesClicked ++;
   deleteImages();
   timesVoted ++;
@@ -126,6 +128,8 @@ function vote3(event){
     displayImages();
   }
 }
+
+// one function and find what you clicked by checking its id and comparing it to the id of what was clikced on
 
 var votingResults = function(){
   var list = document.createElement('ul');
