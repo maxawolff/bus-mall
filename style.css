@@ -1,0 +1,29 @@
+*{
+    margin: auto;
+}
+
+h1{
+  font-family: 'Acme', sans-serif;
+  color: blue;
+  font-size: 60px;
+  border: 2px solid blue;
+  width: 45%;
+  text-align: center;
+}
+
+p{
+  width: 66%;
+  position: relative;
+  top: 50px;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 20px;
+}
+
+div{
+  position: relative;
+  top: 100px;
+}
+
+ul{
+  font-family: monospace;
+}

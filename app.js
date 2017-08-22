@@ -36,7 +36,7 @@ var waterCan = new Image('water can', 'img/water-can.jpg');
 var wineGlass = new Image('wine glass', 'img/wine-glass.jpg');
 
 var images = [bag,banana,bathroom,boots,breakfast,bubblegum,chair,cthulhu,dogDuck,dragon,pen,petSweep,scissors,shark,sweep,tauntaun,unicorn,usb,waterCan,wineGlass];
-var position = document.getElementsByTagName('body')[0];
+var position = document.getElementsByTagName('div')[0];
 
 var whichImages = function(){
   index1 = Math.floor(Math.random() * 20);
