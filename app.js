@@ -101,6 +101,7 @@ function vote1(event){
     displayImages();
   }
 }
+// event.target = what was clicked on
 
 function vote2(event){
   images[index2].timesClicked ++;
