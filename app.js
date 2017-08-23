@@ -87,28 +87,25 @@ var deleteImages = function(){
     var anImage = document.getElementsByTagName('img')[0];
     var container = anImage.parentNode;
     container.removeChild(anImage);
-  }
+  };
 };
 
 function vote1(event){
   images[index1].timesClicked ++;
   deleteImages();
   timesVoted ++;
-  console.log(timesVoted);
   if(timesVoted === 25){
     votingResults();
   }
   else{
     displayImages();
   }
-
 }
 
 function vote2(event){
   images[index2].timesClicked ++;
   deleteImages();
   timesVoted ++;
-  console.log(timesVoted);
   if(timesVoted === 25){
     votingResults();
   }
@@ -121,7 +118,6 @@ function vote3(event){
   images[index3].timesClicked ++;
   deleteImages();
   timesVoted ++;
-  console.log(timesVoted);
   if(timesVoted === 25){
     votingResults();
   }
