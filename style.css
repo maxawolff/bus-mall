@@ -6,7 +6,7 @@ h1{
   font-family: 'Acme', sans-serif;
   color: blue;
   font-size: 60px;
-  border: 2px solid blue;
+  border: 2px solid red;
   width: 45%;
   text-align: center;
 }
@@ -17,6 +17,9 @@ p{
   top: 50px;
   font-family: 'Libre Franklin', sans-serif;
   font-size: 20px;
+  color: red;
+  border: 2px solid blue;
+  padding: 10px;
 }
 
 div{
