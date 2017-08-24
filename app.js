@@ -134,6 +134,14 @@ var votingResults = function(){
     displayResults.push(images[i].timesDisplayed);
     clickResults.push(images[i].timesClicked);
   }
+  if ( localStorage.getItem('totalDisplayResults') && localStorage.getItem('totalClickResluts')) {
+    var oldDisplay = JSON.parse(localStorage.getItem('totalDisplayResults'));
+    var oldClicks = JSON.parse(localStorage.getItem('totalClickResluts'));
+    for (var j = 0; j < oldClicks.length ; j ++) {
+      displayResults[j] += oldDisplay[j];
+      clickResults[j] += oldClicks[j];
+    }
+  }
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
   var data = {
@@ -156,6 +164,8 @@ var votingResults = function(){
       maintainAspectRatio: false,
     }
   });
+  localStorage.setItem('totalDisplayResults', JSON.stringify(displayResults));
+  localStorage.setItem('totalClickResluts', JSON.stringify(clickResults));
 };
 
 displayImages();
